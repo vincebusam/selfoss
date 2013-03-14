@@ -538,6 +538,8 @@ selfoss.events = {
                     },
                     success: function() {
                         if ($(".nav-filter-unread").hasClass("active") && unread) {
+                            if ($('#fullscreen-entry').is(':visible'))
+                                $('#fullscreen-entry .entry-close').click();
                             parent.hide();
                         }
                     }

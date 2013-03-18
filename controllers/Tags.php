@@ -48,6 +48,10 @@ class Tags extends BaseController {
      */
     public function renderTags($tags) {
         $html = "";
+        if (!$this->view) {
+            $this->view = new \helpers\View();
+            return $html;
+        }
         foreach($tags as $tag) {
             $this->view->tag = $tag['tag'];
             $this->view->color = $tag['color'];

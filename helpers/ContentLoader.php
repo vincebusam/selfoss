@@ -149,7 +149,7 @@ class ContentLoader {
                     'title'        => $title,
                     'content'      => $content,
                     'source'       => $source['id'],
-                    'datetime'     => $item->getDate(),
+                    'datetime'     => $itemDate->format('Y-m-d H:i:s'),
                     'uid'          => $item->getId(),
                     'thumbnail'    => $item->getThumbnail(),
                     'icon'         => $icon!==false ? $icon : "",

@@ -433,6 +433,10 @@ input {
             background-image:url(images/arrow-down.png);
         }
         
+        .entry-toolbar .entry-newwindow {
+            background-image:url(images/open.png);
+        }
+        
         .entry-toolbar .entry-close {
             display:none;
             width:32px;

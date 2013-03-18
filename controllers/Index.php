@@ -23,6 +23,10 @@ class Index extends BaseController {
         
         // parse params
         $options = array();
+        if (\F3::get('homepage')!='')
+            $options = array( 'type' => \F3::get('homepage') );
+        
+        // use ajax given params?
         if(count($_GET)>0)
             $options = $_GET;
         

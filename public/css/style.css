@@ -391,6 +391,10 @@ input {
         font-size:0.7em;
     }
     
+    .entry-smartphone-share {
+        display:none;
+    }
+    
     .entry-toolbar {
         display:none;
         margin:-5px;
@@ -402,6 +406,7 @@ input {
         background:#eaeaea;
     }
     
+        .entry-smartphone-share li,
         .entry-toolbar li {
             float:left;
             margin-left:10px;
@@ -435,6 +440,18 @@ input {
         
         .entry-toolbar .entry-newwindow {
             background-image:url(images/open.png);
+        }
+        
+        .entry-sharegoogle {
+            background-image:url(images/googleplus.png);
+        }
+        
+        .entry-sharetwitter {
+            background-image:url(images/twitter.ico);
+        }
+        
+        .entry-sharefacebook {
+            background-image:url(images/facebook.ico);
         }
         
         .entry-toolbar .entry-close {
@@ -959,6 +976,23 @@ body.publicmode.notloggedin .entry-unread {
             #fullscreen-entry .entry-close {
                 display:block;
             }
+    
+    .entry-share {
+        display:none;
+    }
+    
+    .entry-smartphone-share {
+        display:block;
+        margin-top:10px;
+        margin-bottom:10px;
+        height:20px;
+    }
+    
+        .entry-smartphone-share li {
+            float:left;
+            margin-right:10px;
+            list-style:none;
+        }
 }
 
 

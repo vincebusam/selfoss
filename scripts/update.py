@@ -113,4 +113,6 @@ for source in sources.execute("SELECT * FROM sources WHERE spout = 'spouts\\rss\
               entry.get("id") or entry.link,
               entry.link ])
     db.commit()
+items.execute("DELETE FROM items WHERE datetime < ?",[datetime.datetime.now()-datetime.timedelta(days=config.getint("globals","items_lifetime"))])
+db.commit()
 db.close()

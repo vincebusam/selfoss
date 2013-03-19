@@ -65,6 +65,9 @@ for source in sources.execute("SELECT * FROM sources WHERE spout = 'spouts\\rss\
     item = items.fetchone()
     if item:
         icon = item["icon"]
+    if lasttime:
+        if not item or item["datetime"] < str(datetime.datetime.now()-datetime.timedelta(seconds=lasttime)):
+            continue
     try:
         feed = feedparser.parse(json.loads(HTMLParser.HTMLParser().unescape(source["params"]))["url"])
     except Exception, e:

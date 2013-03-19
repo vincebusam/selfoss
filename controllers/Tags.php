@@ -52,9 +52,11 @@ class Tags extends BaseController {
             $this->view = new \helpers\View();
             return $html;
         }
+        $itemsDao = new \daos\Items();
         foreach($tags as $tag) {
             $this->view->tag = $tag['tag'];
             $this->view->color = $tag['color'];
+	    $this->view->unread = $itemsDao->numberOfUnreadForTag($tag['tag']);
             $html .= $this->view->render('templates/tag.phtml');
         }
         

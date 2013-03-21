@@ -161,10 +161,6 @@ class Items extends Database {
         $params = array();
         $where = '';
         
-        // given source
-        if(isset($options['source']))
-            $where .= ' AND source=' . $options['source'] . ' ';
-
         // only starred
         if(isset($options['type']) && $options['type']=='starred')
             $where .= ' AND starred=1 ';

@@ -46,7 +46,9 @@ selfoss.events.entries = function(e) {
             
             // set color of all tags by background color
             fullscreen.find('.entry-tags-tag').colorByBrightness();
-    
+
+            fullscreen.find('blockquote').css("overflow-x","scroll");
+
             // set events for closing fullscreen
             fullscreen.find('.entry, .entry-close').click(function(e) {
                 if(e.target.tagName.toLowerCase()=="a")

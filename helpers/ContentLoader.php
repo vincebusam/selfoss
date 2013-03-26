@@ -34,18 +34,8 @@ class ContentLoader {
      */
     public function update() {
         $sourcesDao = new \daos\Sources();
-        foreach($sourcesDao->get() as $source) {
-            if ($this->age == 0) {
-                $this->fetch($source);
-                continue;
-            }
-            $itemDao = new \daos\Items();
-            foreach ($itemDao->get(array('source' => $source['id'])) as $item) {
-                if ($item['datetime'] > date('Y-m-d H:i:s',time()-$this->age)) {
-                    $this->fetch($source);
-                    break;
-                }
-            }
+        foreach($sourcesDao->getByLastUpdate() as $source) {
+            $this->fetch($source);
         }
         $this->cleanup();
     }
@@ -195,12 +185,14 @@ class ContentLoader {
         // destroy feed object (prevent memory issues)
         \F3::get('logger')->log('destroy spout object', \DEBUG);
         $spout->destroy();
-        
+
+        $sourceDao = new \daos\Sources();
         // remove previous error
         if(strlen(trim($source['error']))!=0) {
-            $sourceDao = new \daos\Sources();
             $sourceDao->error($source['id'], '');
         }
+        // save last update
+        $sourceDao->saveLastUpdate($source['id']);
     }
     
     
